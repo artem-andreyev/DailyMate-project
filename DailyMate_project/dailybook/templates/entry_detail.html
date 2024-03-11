@@ -3,6 +3,8 @@
 {% block content %}
   <h2>{{ object.title }}</h2>
   <p>{{ object.content }}</p>
-  <p>{{ object.date_created }}</p>
+  <p>Created: {{ object.date_created }}</p>
+  <p>Last Modified: {{ object.date_modified }}</p>
+  <a href="{% url 'entry_edit' object.pk %}">Edit Entry</a>
   <a href="{% url 'entry_list' %}">Back to Entries</a>
 {% endblock %}
