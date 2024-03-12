@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ object.title }}</h2>
+  <p>{{ object.content }}</p>
+  <p>{{ object.date_created }} + 123e</p>
+  <a href="{% url 'dailybook_edit' object.pk %}">Edit Entry</a>
+  <a href="{% url 'dailybook_list' %}">Back to Entries</a>
+{% endblock %}

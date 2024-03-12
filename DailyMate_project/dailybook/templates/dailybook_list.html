@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Daily-books</h2>
+  <ul>
+    {% for dailybook in object_list %}
+      <li><a href="{% url 'dailybook_detail' dailybook.pk %}">{{ dailybook.title }}</a></li>
+    {% endfor %}
+
+  </ul>
+
+  <a href="{% url 'dailybook_create' %}">Add Entry</a>
+{% endblock %}

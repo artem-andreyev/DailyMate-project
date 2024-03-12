@@ -1,17 +1,14 @@
 from django import forms
-from .models import Entry
+from .models import Entry, Dailybook
+
 
 class EntryForm(forms.ModelForm):
     class Meta:
         model = Entry
-        fields = ['title', 'content', 'date_modified']
-
-    widgets = {
-        'date_modified': forms.DateInput(attrs={'type': 'datetime-local'}),
-    }
+        fields = ['title', 'content']
 
 
-class EntryUpdateForm(forms.ModelForm):
+class DailybookForm(forms.ModelForm):
     class Meta:
-        model = Entry
-        fields = ['title', 'content', 'date_modified']
+        model = Dailybook
+        fields = ['title', 'content', 'note_date']
