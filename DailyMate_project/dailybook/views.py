@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
-from .models import Entry, Dailybook
+from .models import Entry, Dailybook, UserProfile
 from .forms import EntryForm, DailybookForm
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
 
 class EntryListView(ListView):
