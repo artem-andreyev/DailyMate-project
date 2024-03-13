@@ -6,8 +6,12 @@
     {% for entry in object_list %}
       <li><a href="{% url 'entry_detail' entry.pk %}">{{ entry.title }}</a></li>
     {% endfor %}
-
   </ul>
 
-  <a href="{% url 'entry_create' %}">Add Entry</a>
+  <div class="wrapper">
+    <li class="add-box">
+      <div class="icon"><i class="uil uil-plus"></i></div>
+      <a href="{% url 'entry_create' %}">Add Entry</a>
+    </li>
+  </div>
 {% endblock %}
