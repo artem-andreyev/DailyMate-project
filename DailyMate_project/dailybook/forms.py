@@ -11,4 +11,4 @@ class EntryForm(forms.ModelForm):
 class DailybookForm(forms.ModelForm):
     class Meta:
         model = Dailybook
-        fields = ['title', 'content', 'note_date']
+        fields = ['title', 'content', 'emotion', 'date_edit']

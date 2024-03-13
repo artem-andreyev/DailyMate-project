@@ -21,7 +21,7 @@ class EntryDetailView(DetailView):
 
 
 class DailybookDetailView(DetailView):
-    model = Entry
+    model = Dailybook
     template_name = 'dailybook_detail.html'
 
 

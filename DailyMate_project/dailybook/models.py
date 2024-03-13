@@ -12,7 +12,15 @@ class Entry(models.Model):
 class Dailybook(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
-    note_date = models.DateTimeField()
+    emotion_choices = [
+        ('happy', 'Happy'),
+        ('sad', 'Sad'),
+        ('angry', 'Angry'),
+        ('neutral', 'Neutral'),
+    ]
+    emotion = models.CharField(max_length=10, choices=emotion_choices)
+    date_edit = models.DateTimeField()
 
     def __str__(self):
         return self.title
+
