@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import BaseUserCreationForm
+
 from .models import Entry, Dailybook, UserProfile
 
 
@@ -17,3 +19,6 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['bio', 'avatar']
+
+class RegisterForm(BaseUserCreationForm):
+    pass

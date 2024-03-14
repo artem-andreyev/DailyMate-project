@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, FormView
 from .models import Entry, Dailybook, UserProfile
-from .forms import EntryForm, DailybookForm
+from .forms import EntryForm, DailybookForm, RegisterForm
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 
@@ -52,3 +52,19 @@ class EntryUpdateView(UpdateView):
     form_class = EntryForm
     template_name = 'note_form.html'
     success_url = reverse_lazy('note_list')
+
+
+@login_required
+def profile_view(request):
+    return render(request, 'user/profile.html')
+
+def log_out(request):
+    return render(request, 'registration/logout.html')
+
+class RegisterView(FormView):
+    form_class = RegisterForm
+    template_name = 'registration/register.html'
+    success_url = reverse_lazy('profile')
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)

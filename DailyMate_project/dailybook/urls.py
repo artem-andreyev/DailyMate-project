@@ -13,6 +13,7 @@ urlpatterns = [
     path('note/add/', EntryCreateView.as_view(), name='entry_create'),
     path('note/<int:pk>/edit/', EntryUpdateView.as_view(), name='entry_edit'),
 
-    path('login/', auth_views.LoginView.as_view(), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('profile/', profile_view, name='profile'),
+    path('register/', RegisterView.as_view(), name='register'),
+    path('logout/', log_out, name='log_out'),
 ]
