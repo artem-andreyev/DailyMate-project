@@ -6,15 +6,25 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 
 
-class EntryListView(ListView):
-    model = Entry
-    template_name = 'note_list.html'
+# class EntryListView(ListView):
+#     model = Entry
+#     template_name = 'note_list.html'
 
 
-class DailybookListView(ListView):
-    model = Dailybook
-    template_name = 'dailybook_list.html'
+# class DailybookListView(ListView):
+#     model = Dailybook
+#     template_name = 'dailybook_list.html'
 
+
+@login_required
+def dailybook_list(request):
+    dailybooks = Dailybook.objects.filter(author=request.user)
+    return render(request, 'dailybook_list.html', {'dailybooks': dailybooks})
+
+@login_required
+def note_list(request):
+    entries = Entry.objects.filter(author=request.user)
+    return render(request, 'note_list.html', {'entries': entries})
 
 class EntryDetailView(DetailView):
     model = Entry
@@ -32,12 +42,22 @@ class EntryCreateView(CreateView):
     template_name = 'note_form.html'
     success_url = reverse_lazy('note_list')
 
+    def form_valid(self, form):
+        # Устанавливаем текущего пользователя в качестве автора записи
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
 
 class DailybookCreateView(CreateView):
     model = Dailybook
     form_class = DailybookForm
     template_name = 'dailybook_form.html'
     success_url = reverse_lazy('dailybook_list')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class DailybookUpdateView(UpdateView):
@@ -58,13 +78,16 @@ class EntryUpdateView(UpdateView):
 def profile_view(request):
     return render(request, 'user/profile.html')
 
+
 def log_out(request):
     return render(request, 'registration/logout.html')
+
 
 class RegisterView(FormView):
     form_class = RegisterForm
     template_name = 'registration/register.html'
     success_url = reverse_lazy('profile')
+
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)

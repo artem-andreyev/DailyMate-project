@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Entry(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)  # добавьте это поле
     title = models.CharField(max_length=100)
     content = models.TextField()
 
@@ -11,6 +12,7 @@ class Entry(models.Model):
 
 
 class Dailybook(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)  # добавьте это поле
     title = models.CharField(max_length=100)
     content = models.TextField()
     emotion_choices = [

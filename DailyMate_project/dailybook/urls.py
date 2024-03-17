@@ -2,8 +2,8 @@ from django.urls import path
 from .views import *
 from django.contrib.auth import views as auth_views
 urlpatterns = [
-    path('', EntryListView.as_view(), name='note_list'),
-    path('daily-book/', DailybookListView.as_view(), name='dailybook_list'),
+    path('', note_list, name='note_list'),
+    path('daily-book/', dailybook_list, name='dailybook_list'),
 
     path('daily-book/add/', DailybookCreateView.as_view(), name='dailybook_create'),
     path('daily-book/<int:pk>/', DailybookDetailView.as_view(), name='dailybook_detail'),
