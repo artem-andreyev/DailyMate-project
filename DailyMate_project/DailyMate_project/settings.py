@@ -107,9 +107,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 
-LOGIN_REDIRECT_URL = reverse_lazy('note_list:profile')
-LOGOUT_REDIRECT_URL = reverse_lazy('log_out')
-
+LOGIN_REDIRECT_URL = reverse_lazy('note_list:profile') 
+LOGOUT_REDIRECT_URL = '/'
 
 LANGUAGE_CODE = 'en-us'
 
