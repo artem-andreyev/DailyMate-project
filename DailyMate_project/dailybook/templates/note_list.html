@@ -7,15 +7,5 @@
       <li><a href="{% url 'entry_detail' entry.pk %}">{{ entry.title }}</a></li>
     {% endfor %}
   </ul>
-<<<<<<< HEAD
-
-  <div class="wrapper">
-    <li class="add-box">
-      <div class="icon"><i class="uil uil-plus"></i></div>
-      <a href="{% url 'entry_create' %}">Add Entry</a>
-    </li>
-  </div>
-=======
   <a href="{% url 'entry_create' %}">Add Entry</a>
->>>>>>> 0c2ad354d893405ed32e970841d1b67ab2d49ea8
 {% endblock %}

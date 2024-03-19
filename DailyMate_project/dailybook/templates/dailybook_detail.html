@@ -1,16 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <label>Title</label>
-  <input type="text" spellcheck="false">
-  </div>
+  <p>{{ object.title }}</p>
   <p>{{ object.content }}</p>
-<<<<<<< HEAD
-  <p>{{ object.note_date }} + 123</p>
-=======
-  <p>{{ object.emotion }} e</p>
+  <p>{{ object.emotion }}</p>
   <p>{{ object.date_edit }}</p>
->>>>>>> 0c2ad354d893405ed32e970841d1b67ab2d49ea8
   <a href="{% url 'dailybook_edit' object.pk %}">Edit Entry</a>
   <a href="{% url 'dailybook_list' %}">Back to Entries</a>
 {% endblock %}
