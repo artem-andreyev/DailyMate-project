@@ -1,5 +1,7 @@
 from django import forms
-from .models import Entry, Dailybook
+from django.contrib.auth.forms import BaseUserCreationForm
+
+from .models import Entry, Dailybook, UserProfile
 
 
 class EntryForm(forms.ModelForm):
@@ -11,4 +13,12 @@ class EntryForm(forms.ModelForm):
 class DailybookForm(forms.ModelForm):
     class Meta:
         model = Dailybook
-        fields = ['title', 'content', 'note_date']
+        fields = ['title', 'content', 'emotion', 'date_edit']
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['bio', 'avatar']
+
+class RegisterForm(BaseUserCreationForm):
+    pass

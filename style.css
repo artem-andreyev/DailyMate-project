@@ -13,12 +13,7 @@ body{
   color: #fff;
   background: #618cf8;
 }
-.wrapper{
-  margin: 50px;
-  display: grid;
-  gap: 25px;
-  grid-template-columns: repeat(auto-fill, 265px);
-}
+
 .wrapper li{
   height: 250px;
   list-style: none;
@@ -33,11 +28,7 @@ body{
   align-items: center;
   justify-content: space-between;
 }
-.add-box{
-  cursor: pointer;
-  flex-direction: column;
-  justify-content: center;
-}
+
 .add-box .icon{
   height: 78px;
   width: 78px;
