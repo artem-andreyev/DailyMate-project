@@ -13,12 +13,13 @@
                 <li><a href="{% url 'note_list' %}">Notes</a></li>
                 <li><a href="{% url 'dailybook_list' %}">Daily book</a></li>
                 <li><a href="{% url 'profile' %}">Profile</a></li>
-
             </ul>
         </nav>
     </header>
     <main>
-        {% block content %}{% endblock %}
+        {% block content %}
+            {% include 'register.html' %}
+        {% endblock %}
     </main>
     <footer>
         <p>&copy; 2024 DailyMate</p>

@@ -1,20 +1,42 @@
 {% extends 'base.html' %}
 
-{% block title %}Login - DailyMate{% endblock %}
+{% block title %}Registration - DailyMate{% endblock %}
 
-{% block header %}Login{% endblock %}
+{% block header %}Registration{% endblock %}
 
 {% block content %}
-    <h2>Register</h2>
+  <div class="wrapper">
+    <h2>Registration</h2>
     <form method="post">
-        {% csrf_token %}
+      {% csrf_token %}
+      <div class="input-box">
         <label for="id_username">Username:</label><br>
-        <input type="text" id="id_username" name="username"><br>
+        <input type="text" id="id_username" name="username" required>
+      </div>
+      <div class="input-box">
+        <label for="id_email">Email:</label><br>
+        <input type="email" id="id_email" name="email" required>
+      </div>
+      <div class="input-box">
         <label for="id_password1">Password:</label><br>
-        <input type="password" id="id_password1" name="password1"><br>
+        <input type="password" id="id_password1" name="password1" required>
+      </div>
+      <div class="input-box">
         <label for="id_password2">Confirm Password:</label><br>
-        <input type="password" id="id_password2" name="password2"><br>
-        {{ form.errors }}
-        <button type="submit">Register</button>
+        <input type="password" id="id_password2" name="password2" required>
+      </div>
+      <div class="policy">
+        <input type="checkbox" id="id_terms" required>
+        <label for="id_terms">I accept all terms & conditions</label>
+      </div>
+      <div class="input-box button">
+        <button type="submit">Register Now</button>
+      </div>
+      <div class="text">
+        <h3>Already have an account? <a href="#">Login now</a></h3>
+      </div>
     </form>
+  </div>
+
+  <link rel="stylesheet" href="{% static 'register.css' %}">
 {% endblock %}
