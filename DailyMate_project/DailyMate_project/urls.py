@@ -22,3 +22,5 @@ urlpatterns = [
     path('', include('dailybook.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
+
+handler404 = 'dailybook.views.page_not_found'
