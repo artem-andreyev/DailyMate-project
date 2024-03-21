@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}DailyMate{% endblock %}</title>
+    {% block head %}
+
+    {% endblock %}
 </head>
 <body>
     <header>
-        <h1>{% block header %}DailyMate{% endblock %}</h1>
-        <nav>
-            <ul>
-                <li><a href="{% url 'note_list' %}">Notes</a></li>
-                <li><a href="{% url 'dailybook_list' %}">Daily book</a></li>
+    <h1>{% block header %}DailyMate{% endblock %}</h1>
+    <nav>
+        <ul>
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'note_list' username=request.user.username %}">Notes</a></li>
+                <li><a href="{% url 'dailybook_list' username=request.user.username %}">Daily book</a></li>
                 <li><a href="{% url 'profile' %}">Profile</a></li>
-            </ul>
-        </nav>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
     </header>
+
     <main>
         {% block content %}
             {% include 'register.html' %}

@@ -7,5 +7,5 @@
     {{ form.as_p }}
     <button type="submit">Save Entry</button>
   </form>
-  <a href="{% url 'dailybook_list' %}">Back to Entries</a>
+  <a href="{% url 'dailybook_list' username=request.user.username %}">Back to Entries</a>
 {% endblock %}

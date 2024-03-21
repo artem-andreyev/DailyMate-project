@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
-
 {% block content %}
   <h2>Notes</h2>
   <ul>
     {% for entry in entries %}
-      <li><a href="{% url 'entry_detail' entry.pk %}">{{ entry.title }}</a></li>
+      <li>
+        <a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.title }}</a>
+      </li>
     {% endfor %}
   </ul>
-  <a href="{% url 'entry_create' %}">Add Entry</a>
+  <a href="{% url 'entry_create' username=request.user.username %}">Add Entry</a>
 {% endblock %}
