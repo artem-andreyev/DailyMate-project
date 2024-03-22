@@ -14,7 +14,7 @@ urlpatterns = [
     path('<str:username>/note/<int:pk>/', EntryDetailView.as_view(), name='entry_detail'),
     path('<str:username>/note/add/', EntryCreateView.as_view(), name='entry_create'),
     path('<str:username>/note/<int:pk>/edit/', EntryUpdateView.as_view(), name='entry_edit'),
-
+    path('search/', search_results, name='search_results'),
     path('profile/', profile_view, name='profile'),
     path('register/', RegisterView.as_view(), name='register'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),

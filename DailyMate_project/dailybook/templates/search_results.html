@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if query %}
+  <h2>Search result: "{{ query }}"</h2>
+  {% if entry_results %}
+    <h3>Notes:</h3>
+    <ul>
+      {% for entry in entry_results %}
+        <li><a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if dailybook_results %}
+    <h3>Книги:</h3>
+    <ul>
+      {% for dailybook in dailybook_results %}
+        <li><a href="{% url 'dailybook_detail' username=dailybook.author.username pk=dailybook.pk %}">{{ dailybook.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if not entry_results and not dailybook_results %}
+    <p>Nothing found.</p>
+  {% endif %}
+{% else %}
+  <p>Enter prompt</p>
+{% endif %}
+{% endblock %}

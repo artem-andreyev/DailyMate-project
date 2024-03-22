@@ -9,6 +9,21 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import Http404, HttpResponseForbidden
 
+from .forms import SearchForm
+from django.db.models import Q
+
+from django.db.models import Q
+
+@login_required
+def search_results(request):
+    query = request.GET.get('q')
+    if query:
+        entry_results = Entry.objects.filter(title__icontains=query, author=request.user)
+        dailybook_results = Dailybook.objects.filter(title__icontains=query, author=request.user)
+    else:
+        entry_results = []
+        dailybook_results = []
+    return render(request, 'search_results.html', {'query': query, 'entry_results': entry_results, 'dailybook_results': dailybook_results})
 
 @login_required
 def dailybook_list(request, username):
