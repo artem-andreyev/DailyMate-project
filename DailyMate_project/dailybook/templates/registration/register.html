@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="{% static 'css/register.css' %}">
 {% endblock %}
 
-{% block header %}Registration{% endblock %}
+{% block header %}{% endblock %}
 
 {% block content %}
   <div class="wrapper">
@@ -15,7 +15,7 @@
       {% csrf_token %}
       <div class="input-box">
         <label for="id_username">Username:</label><br>
-        <input type="text" id="id_username" name="username" required>
+        <input type="text" id="username" name="username" required>
       </div>
       <div class="input-box">
         <label for="id_password1">Password:</label><br>
@@ -29,7 +29,7 @@
         <button type="submit">Register Now</button>
       </div>
       <div class="text">
-        <h3>Already have an account? <a href="#">Login now</a></h3>
+        <h3>Already have an account? <a href="{% url 'login' %}">Login now</a></h3>
       </div>
        {{ form.errors }}
     </form>

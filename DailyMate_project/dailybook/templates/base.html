@@ -18,13 +18,13 @@
                 <li><a href="{% url 'dailybook_list' username=request.user.username %}">Daily book</a></li>
                 <li><a href="{% url 'profile' %}">Profile</a></li>
             {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'register' %}">Register</a></li>
+                <!-- <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li> -->
             {% endif %}
-            <form method="get" action="{% url 'search_results' %}">
+            <!-- <form method="get" action="{% url 'search_results' %}">
                 <input type="text" name="q" placeholder="Enter...">
                 <button type="submit">Enter</button>
-            </form>
+            </form> -->
 
         </ul>
     </nav>
@@ -35,8 +35,8 @@
             {% include 'register.html' %}
         {% endblock %}
     </main>
-    <footer>
+    <!-- <footer>
         <p>&copy; 2024 DailyMate</p>
-    </footer>
+    </footer> -->
 </body>
 </html>
