@@ -12,7 +12,7 @@
     </ul>
   {% endif %}
   {% if dailybook_results %}
-    <h3>Книги:</h3>
+    <h3>Dailybook</h3>
     <ul>
       {% for dailybook in dailybook_results %}
         <li><a href="{% url 'dailybook_detail' username=dailybook.author.username pk=dailybook.pk %}">{{ dailybook.title }}</a></li>

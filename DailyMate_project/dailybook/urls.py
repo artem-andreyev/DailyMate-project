@@ -6,6 +6,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', RedirectView.as_view(url='/profile/')),
+
     path('<str:username>/notes/', note_list, name='note_list'),
     path('<str:username>/daily-book/', dailybook_list, name='dailybook_list'),
     path('<str:username>/daily-book/add/', DailybookCreateView.as_view(), name='dailybook_create'),

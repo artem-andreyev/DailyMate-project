@@ -92,7 +92,7 @@ class EntryCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse_lazy('main/note_list', kwargs={'username': self.kwargs['username']})
+        return reverse_lazy('note_list', kwargs={'username': self.kwargs['username']})
 
 
 class DailybookCreateView(LoginRequiredMixin, CreateView):
@@ -106,7 +106,7 @@ class DailybookCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse_lazy('main/dailybook_list', kwargs={'username': self.kwargs['username']})
+        return reverse_lazy('dailybook_list', kwargs={'username': self.kwargs['username']})
 
 
 class DailybookUpdateView(LoginRequiredMixin, UpdateView):
