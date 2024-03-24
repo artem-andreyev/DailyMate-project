@@ -6,5 +6,6 @@
   <p>{{ object.emotion }}</p>
   <p>{{ object.date_edit }}</p>
   <a href="{% url 'dailybook_edit' pk=object.pk username=request.user.username %}">Edit Entry</a>
+  <a href="{% url 'dailybook_delete' username=request.user.username pk=object.pk%}">Delete</a>
   <a href="{% url 'dailybook_list' username=request.user.username %}">Back to Entries</a>
 {% endblock %}

@@ -1,18 +1,30 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import DetailView, CreateView, UpdateView, FormView
-from .models import Entry, Dailybook
+
 from .forms import DailybookForm, RegisterForm
-from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.models import User
-from django.http import Http404, HttpResponseForbidden
+from django.http import Http404, HttpResponseForbidden, HttpResponseRedirect
+# views.py
 
-from .forms import SearchForm
-from django.db.models import Q
+from django.views.generic import DeleteView
+from django.urls import reverse_lazy
+from .models import Entry, Dailybook
 
-from django.db.models import Q
+
+def EntryDeleteView(request, username, pk):
+    id_to_delete = Entry.objects.get(id=pk)
+    id_to_delete.delete()
+    return redirect('note_list', username=username)
+
+
+def DailybookDeleteView(request, username, pk):
+    id_to_delete = Dailybook.objects.get(id=pk)
+    id_to_delete.delete()
+    return redirect('dailybook_list', username=username)
+
 
 @login_required
 def search_results(request):
@@ -23,7 +35,9 @@ def search_results(request):
     else:
         entry_results = []
         dailybook_results = []
-    return render(request, 'search_results.html', {'query': query, 'entry_results': entry_results, 'dailybook_results': dailybook_results})
+    return render(request, 'search_results.html',
+                  {'query': query, 'entry_results': entry_results, 'dailybook_results': dailybook_results})
+
 
 @login_required
 def dailybook_list(request, username):
