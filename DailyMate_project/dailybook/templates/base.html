@@ -14,9 +14,9 @@
     <nav>
         <ul>
             {% if request.user.is_authenticated %}
-                <li><a href="{% url 'note_list' username=request.user.username %}">Notes</a></li>
+                <!-- <li><a href="{% url 'note_list' username=request.user.username %}">Notes</a></li>
                 <li><a href="{% url 'dailybook_list' username=request.user.username %}">Daily book</a></li>
-                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li> -->
             {% else %}
                 <!-- <li><a href="{% url 'login' %}">Login</a></li>
                 <li><a href="{% url 'register' %}">Register</a></li> -->
