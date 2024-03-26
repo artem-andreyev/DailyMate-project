@@ -34,6 +34,15 @@ nav{
     transition: all 0.3s ease;
     font-family: 'Ubuntu', sans-serif;
   }
+  .navbar .media-icons a {
+    color: #4070f4;
+    font-size: 18px;
+    margin: 0 6px;
+}
+
+nav.sticky .media-icons a {
+    color: #FFF;
+}
   nav.sticky{
     background: #4070f4;
     padding: 13px 0;
