@@ -10,25 +10,21 @@
 {% endblock %}
 
 {% block content %}
-    <!-- <h2>Profile</h2>
-    <h3>{{ user.username }}</h3>
-    <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Logout</button>
-    </form> -->
-
         <!-- Move to up button -->
         <div class="scroll-button">
             <a href="#home"><i class="fas fa-arrow-up"></i></a>
           </div>
+        <!--<div class="logout-button">
+            <button><a href="{% url 'logout' %}">Logout</a></button>
+        </div> -->
           <!-- navgaition menu -->
           <nav>
             <div class="navbar">
               <div class="logo"><a href="#">DailyMate.</a></div>
               <ul class="menu">
-                <li><a href="#skills">Daily book</a></li>
-                <li><a href="#about">Notes</a></li>
-                <li><a href="#home">Profile</a></li>
+                <li><a href="{% url 'dailybook_list' username=request.user.username %}">Daily book</a></li>
+                <li><a href="{% url 'note_list' username=request.user.username %}">Notes</a></li>
+                <li><a href="{% url 'profile'%}">Profile</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <div class="cancel-btn">
                   <i class="fas fa-times"></i>
@@ -54,10 +50,11 @@
           <div class="text-two">I'm Note/Diary app</div>
           <div class="text-three">DailyMate</div>
         </div>
-        <div class="button"><!-- разобраться с переходом на  logout при нажатии кнопки !!! @iteochaly -->
-          <button>Do you want to log out of your profile? <a href="{% url 'logout' %}">Logout</a></button>
-          <!-- подумать куда можно перенести logout button-->
-          <!-- разобраться с картинками на сайте -->
+        <div class="button">
+          <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+          </form>
         </div>
       </div>
     </section>

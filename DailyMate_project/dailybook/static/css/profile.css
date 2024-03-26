@@ -86,6 +86,27 @@ nav{
     color: #FFF;
   }
   /* Side Navigation Menu Button CSS */
+  /* Add this CSS to your existing stylesheet */
+
+.logout-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.logout-button button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #4070f4;
+  cursor: pointer;
+}
+
+.logout-button button:hover {
+  text-decoration: underline;
+}
+
   nav .menu-btn,
   .navbar .menu .cancel-btn{
     position: absolute;
