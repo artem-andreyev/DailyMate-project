@@ -11,15 +11,13 @@
 {% endblock %}
 
 {% block content %}
-  <h2>Notes</h2>
-  <ul>
+  <ul>  
     {% for entry in entries %}
       <li>
         <a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.title }}</a>
       </li>
     {% endfor %}
   </ul>
-  <a href="{% url 'entry_create' username=request.user.username %}">Add Entry</a>
 
   <body>
     <div class="popup-box">
@@ -47,7 +45,7 @@
     <div class="wrapper">
       <li class="add-box">
         <div class="icon"><i class="uil uil-plus"></i></div>
-        <p>Add new note</p>
+        <a href="{% url 'entry_create' username=request.user.username %}">Add Entry</a>
       </li>
     </div>
 
