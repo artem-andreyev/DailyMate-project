@@ -20,12 +20,15 @@
             {% if request.user.is_authenticated %}
             <nav>
             <div class="navbar">
-              <div class="logo"><a href="#">DailyMate.</a></div>
+              <div class="logo"><a href="{% url 'dailybook_list' username=request.user.username %}">DailyMate.</a></div>
               <ul class="menu">
                 <li><a href="{% url 'dailybook_list' username=request.user.username %}">Daily book</a></li>
                 <li><a href="{% url 'note_list' username=request.user.username %}">Notes</a></li>
                 <li><a href="{% url 'profile'%}">Profile</a></li>
+                {% if request.path == '/profile/' %}
                 <li><a href="#contact">Contact</a></li>
+                {% endif %}
+
                 <div class="cancel-btn">
                   <i class="fas fa-times"></i>
                 </div>
@@ -35,18 +38,9 @@
               <i class="fas fa-bars"></i>
             </div>
           </nav>
-                <!-- <li><a href="{% url 'note_list' username=request.user.username %}">Notes</a></li>
-                <li><a href="{% url 'dailybook_list' username=request.user.username %}">Daily book</a></li>
-                <li><a href="{% url 'profile' %}">Profile</a></li> -->
             {% else %}
-                <!-- <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'register' %}">Register</a></li> -->
+            <li><a href="{% url 'login' %}">Login</a></li>
             {% endif %}
-           
-            <!-- <form method="get" action="{% url 'search_results' %}">
-                <input type="text" name="q" placeholder="Enter...">
-                <button type="submit">Enter</button>
-            </form> -->
 
         </ul>
 

@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block content %}
-  <ul>  
+  <ul>
     {% for entry in entries %}
       <li>
         <a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.title }}</a>
