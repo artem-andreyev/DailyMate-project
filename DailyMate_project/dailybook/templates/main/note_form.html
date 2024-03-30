@@ -1,11 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Note list - DailyMate{% endblock %}
+
+{% block header%}
+  <link rel="stylesheet" href="{% static 'css/note_form.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+{% endblock %}
+
 {% block content %}
-  <h2>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Entry</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Entry</button>
-  </form>
-  <a href="{% url 'note_list' username=request.user.username %}">Back to Entries</a>
+  <ul>
+    {% for entry in entries %}
+      <li>
+        <a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <div class="popup-box">
+    <div class="popup">
+      <div class="content">
+        <header>
+          <p>Add a new note</p>
+          <i class="uil uil-times"></i>
+        </header>
+        <form action="#">
+          {% csrf_token %}
+          <div class="row title">
+            <label>Title</label>
+            <input type="text" spellcheck="false">
+          </div>
+          <div class="row description">
+            <label>Description</label>
+            <textarea spellcheck="false"></textarea>
+          </div>
+          <button>Add note</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'css/note_list.js' %}"></script>
 
 {% endblock %}

@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title %}Note list - DailyMate{% endblock %}
 
 {% block header%}
@@ -19,38 +18,15 @@
     {% endfor %}
   </ul>
 
-  <body>
-    <div class="popup-box">
-      <div class="popup">
-        <div class="content">
-          <header>
-            <p></p>
-            <i class="uil uil-times"></i>
-          </header>
-          <form action="#">
-            {% csrf_token %}
-            <div class="row title">
-              <label>Title</label>
-              <input type="text" spellcheck="false">
-            </div>
-            <div class="row description">
-              <label>Description</label>
-              <textarea spellcheck="false"></textarea>
-            </div>
-            <button></button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="wrapper">
-      <li class="add-box">
+  <div class="wrapper">
+    <li class="add-box">
+      <a href="{% url 'entry_create' username=request.user.username %}" class="add-link">
         <div class="icon"><i class="uil uil-plus"></i></div>
-        <a href="{% url 'entry_create' username=request.user.username %}">Add Entry</a>
-      </li>
-    </div>
+      </a>
+    </li>
+  </div>    
+  
 
   <script src="{% static 'css/note_list.js' %}"></script>
 
-  </body>
-  
 {% endblock %}

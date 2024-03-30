@@ -111,4 +111,7 @@ addBtn.addEventListener("click", e => {
         showNotes();
         closeIcon.click();
     }
+
+    const addBox = document.querySelector(".add-box");
+
 });
