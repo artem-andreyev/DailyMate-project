@@ -13,13 +13,19 @@
 
   <div class="wrapper">
     <li class="add-box">
-      <a href="{% url 'entry_create' username=request.user.username %}" class="add-link">
-        <div class="icon"><i class="uil uil-plus"></i></div>
-      </a>
+      <div class="icon"><i class="uil uil-plus"></i></div>
     </li>
     {% for entry in entries %}
-    <li>
-      <a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.title }}</a>
+    <li >
+      <a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.title|slice:":15" }}</a>
+      {% if entry.title|length > 30 %}
+        ...
+      {% endif %}
+      <a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.content|slice:":3000" }}</a>
+      {% if entry.content|length > 30 %}
+        ...
+      {% endif %}
+      <a href="{% url 'entry_edit' username=entry.author.username pk=entry.pk  %}">Edit Entry</a>
     </li>
     {% endfor %}
   </div>    
