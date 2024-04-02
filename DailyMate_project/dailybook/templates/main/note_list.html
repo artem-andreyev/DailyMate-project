@@ -18,8 +18,8 @@
       </a>
     </li>
     {% for entry in entries %}
-    <li class="add-box">
-      <h1>{{ entry.title }}</h1>
+    <li>
+      <a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.title }}</a>
     </li>
     {% endfor %}
   </div>    
