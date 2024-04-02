@@ -67,6 +67,7 @@ def note_list(request, username):
             raise Http404("User does not exist")
 
         entries = Entry.objects.filter(author=user)
+        print(entries)
         return render(request, 'main/note_list.html', {'entries': entries})
 
 

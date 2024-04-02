@@ -10,13 +10,6 @@
 {% endblock %}
 
 {% block content %}
-  <ul>
-    {% for entry in entries %}
-      <li>
-        <a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
 
   <div class="wrapper">
     <li class="add-box">
@@ -24,6 +17,11 @@
         <div class="icon"><i class="uil uil-plus"></i></div>
       </a>
     </li>
+    {% for entry in entries %}
+    <li class="add-box">
+      <h1>{{ entry.title }}</h1>
+    </li>
+    {% endfor %}
   </div>    
   
 
