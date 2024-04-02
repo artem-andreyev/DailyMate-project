@@ -11,7 +11,7 @@ window.onscroll = function() {
     scrollBtn.style.display = "none";
   }
 
-}
+};
 
 // Side NavIgation Menu JS Code
 let body = document.querySelector("body");
@@ -24,14 +24,14 @@ menuBtn.onclick = function(){
   menuBtn.style.pointerEvents = "none";
   body.style.overflow = "hidden";
   scrollBtn.style.pointerEvents = "none";
-}
+};
 cancelBtn.onclick = function(){
   navBar.classList.remove("active");
   menuBtn.style.opacity = "1";
   menuBtn.style.pointerEvents = "auto";
   body.style.overflow = "auto";
   scrollBtn.style.pointerEvents = "auto";
-}
+};
 
 // Side Navigation Bar Close While We Click On Navigation Links
 let navLinks = document.querySelectorAll(".menu li a");
