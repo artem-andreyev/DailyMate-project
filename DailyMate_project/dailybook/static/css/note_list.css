@@ -21,6 +21,8 @@
   border-radius: 5px;
   padding: 15px 20px 20px;
   background: #fff;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 .add-box, .icon, .bottom-content, 

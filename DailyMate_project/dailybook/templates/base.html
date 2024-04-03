@@ -24,6 +24,7 @@
               <ul class="menu">
                 <li><a href="{% url 'dailybook_list' username=request.user.username %}">Daily book</a></li>
                 <li><a href="{% url 'note_list' username=request.user.username %}">Notes</a></li>
+                <li><a href="{% url 'search_results'%}">Search</a></li>
                 <li><a href="{% url 'profile'%}">Profile</a></li>
                 {% if request.path == '/profile/' %}
                 <li><a href="#contact">Contact</a></li>

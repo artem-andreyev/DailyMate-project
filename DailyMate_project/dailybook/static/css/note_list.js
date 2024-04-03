@@ -9,7 +9,6 @@ addBtn = popupBox.querySelector("button");
 const months = ["January", "February", "March", "April", "May", "June", "July",
               "August", "September", "October", "November", "December"];
 const notes = JSON.parse(localStorage.getItem("notes") || "[]");
-console.log(notes);
 let isUpdate = false, updateId;
 
 addBox.addEventListener("click", () => {
@@ -26,19 +25,17 @@ closeIcon.addEventListener("click", () => {
     popupBox.classList.remove("show");
     document.querySelector("body").style.overflow = "auto";
 });
+
 function showNotes() {
     if(!notes) return;
     document.querySelectorAll(".note").forEach(li => li.remove());
     notes.forEach((note, id) => {
         let filterDesc = note.description.replaceAll("\n", '<br/>');
         let liTag = `<li class="note">
-
                         <div class="details">
-                            <p>Title: ${note.title}</p>
-                            <p>Description: ${note.description}</p>
+                            <p>${note.title}</p>
                             <span>${filterDesc}</span>
                         </div>
-
                         <div class="bottom-content">
                             <span>${note.date}</span>
                             <div class="settings">
@@ -51,14 +48,8 @@ function showNotes() {
                         </div>
                     </li>`;
         addBox.insertAdjacentHTML("afterend", liTag);
-
-        // Вывод данных в консоль
-        console.log("Title:", note.title);
-        console.log("Description:", note.description);
-        console.log("URL:", window.location.href);
     });
 }
-
 showNotes();
 
 function showMenu(elem) {
@@ -100,7 +91,7 @@ addBtn.addEventListener("click", e => {
         day = currentDate.getDate(),
         year = currentDate.getFullYear();
 
-        let noteInfo = {title, description, date: `${month} ${day}, ${year}`};
+        let noteInfo = {title, description, date: `${month} ${day}, ${year}`}
         if(!isUpdate) {
             notes.push(noteInfo);
         } else {
@@ -111,7 +102,4 @@ addBtn.addEventListener("click", e => {
         showNotes();
         closeIcon.click();
     }
-
-    const addBox = document.querySelector(".add-box");
-
 });
