@@ -23,7 +23,7 @@
       <div class="content">
         <header>
           <p>Add a new note</p>
-           <a href="{% url 'note_list' username=entry.author.username%}"><i class="uil uil-times"></i></a>
+          <a href="{% url 'note_list' username=request.user.username%} "><i class="uil uil-times"></i></a>
         </header>
         <form method="post">
           {% csrf_token %}

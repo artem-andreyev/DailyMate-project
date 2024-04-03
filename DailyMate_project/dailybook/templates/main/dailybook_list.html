@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
-
 {% block content %}
   <h2>Daily-books</h2>
+  <form method="get">
+    <label for="sort_by">Sort by:</label>
+    <select name="sort_by" id="sort_by">
+      <option value="timestamp">Time</option>
+      <option value="title">Title</option>
+      <option value="emotion">Emotion</option>
+    </select>
+    <button type="submit">Enter</button>
+  </form>
   <ul>
     {% for dailybook in dailybooks %}
       <li><a href="{% url 'dailybook_detail' username=request.user.username pk=dailybook.pk %}">{{ dailybook.title }}</a></li>
     {% endfor %}
   </ul>
-
-  <a href="{% url 'dailybook_create' username=request.user.username %}">Add Entry</a>
+  <a href="{% url 'dailybook_create' username=request.user.username %}">Добавить запись</a>
 {% endblock %}

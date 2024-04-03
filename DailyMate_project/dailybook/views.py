@@ -49,7 +49,14 @@ def dailybook_list(request, username):
         except User.DoesNotExist:
             raise Http404("User does not exist")
 
-        dailybooks = Dailybook.objects.filter(author=user)
+        sort_by = request.GET.get('sort_by')
+        if sort_by == 'title':
+            dailybooks = Dailybook.objects.filter(author=user).order_by('title')
+        elif sort_by == 'emotion':
+            dailybooks = Dailybook.objects.filter(author=user).order_by('emotion')
+        else:  # Default sorting by date_edit
+            dailybooks = Dailybook.objects.filter(author=user).order_by('-date_edit')
+
         return render(request, 'main/dailybook_list.html', {'dailybooks': dailybooks})
 
 
