@@ -91,7 +91,7 @@ addBtn.addEventListener("click", e => {
         day = currentDate.getDate(),
         year = currentDate.getFullYear();
 
-        let noteInfo = {title, description, date: `${month} ${day}, ${year}`}
+        let noteInfo = {title, description, date: `${month} ${day}, ${year}`};
         if(!isUpdate) {
             notes.push(noteInfo);
         } else {
