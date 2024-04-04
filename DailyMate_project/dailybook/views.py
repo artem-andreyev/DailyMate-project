@@ -1,17 +1,15 @@
+from django.contrib.auth import authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView, CreateView, UpdateView, FormView
-
-from .forms import DailybookForm, RegisterForm
+from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-
 from django.contrib.auth.models import User
-from django.http import Http404, HttpResponseForbidden, HttpResponseRedirect
-# views.py
-
-from django.views.generic import DeleteView
+from django.http import Http404
 from django.urls import reverse_lazy
+
 from .models import Entry, Dailybook
+from .forms import DailybookForm, RegisterForm
 
 
 def EntryDeleteView(request, username, pk):
@@ -158,7 +156,6 @@ class EntryUpdateView(LoginRequiredMixin, UpdateView):
         entry = self.get_object()
         if request.user != entry.author or request.user.username != username:
             return render(request, 'error/access_denied.html', status=403)
-            # return HttpResponseForbidden()
         return super().dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
@@ -181,6 +178,14 @@ class RegisterView(FormView):
 
     def form_valid(self, form):
         form.save()
+
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(self.request, user)  # Автоматическая аутентификация
+            return super().form_valid(form)
+
         return super().form_valid(form)
 
 
