@@ -183,7 +183,7 @@ class RegisterView(FormView):
         password = form.cleaned_data.get('password1')
         user = authenticate(username=username, password=password)
         if user is not None:
-            login(self.request, user)  # Автоматическая аутентификация
+            login(self.request, user)
             return super().form_valid(form)
 
         return super().form_valid(form)
