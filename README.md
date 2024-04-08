@@ -12,7 +12,7 @@ To run this project locally, follow these steps:
     ```
 3. Navigate to the project directory.
     ```bash
-    cd /<project_directory>/
+    cd /project_directory/
     ```
 4. Install the required Python packages using pip.
     ```bash
