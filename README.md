@@ -33,7 +33,7 @@ To run this project locally, follow these steps:
 - **Permissions:** Users can only manage their own notes and daily entries.
 
 ## Usage
-1. **Registration:** Users can register for a new account by providing necessary details.
+1. **Registration:** Users can register for a new account by providing the necessary details.
 2. **Login:** Registered users can log in using their credentials.
 3. **Profile:** Users can manage their profiles by adding a bio and avatar image.
 4. **Note Management:** Users can create, edit, and delete notes.
@@ -43,7 +43,6 @@ To run this project locally, follow these steps:
 
 ## Contributors
 This project was developed by Teodors Čalijs and Artjems Andrejev
-
 
 ## Development Environment
 - **Django:** The web framework used for building the application.
