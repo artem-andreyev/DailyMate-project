@@ -15,8 +15,10 @@
     <li class="add-box">
       <a href="{% url 'entry_create' username=request.user.username %}" class="add-link">
         <div class="icon"><i class="uil uil-plus"></i></div>
+        <p>Add new note</p>
       </a>
     </li>
+    
     {% for entry in entries reversed %}
     <li >
       <a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.title|slice:":20" }}</a>
@@ -28,7 +30,9 @@
         ...
       {% endif %}
       <br>
+      <div class = "edit">
       <a href="{% url 'entry_edit' username=entry.author.username pk=entry.pk  %}">Edit Entry</a>
+      </div>
     </li>
     {% endfor %}
   </div>    

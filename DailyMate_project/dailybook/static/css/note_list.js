@@ -5,6 +5,9 @@ closeIcon = popupBox.querySelector("header i"),
 titleTag = popupBox.querySelector("input"),
 descTag = popupBox.querySelector("textarea"),
 addBtn = popupBox.querySelector("button");
+const editbtn = popupBox.querySelector("edit");
+const subbtn = popupBox.querySelector(".sub_button");
+
 
 const months = ["January", "February", "March", "April", "May", "June", "July",
               "August", "September", "October", "November", "December"];
@@ -102,4 +105,11 @@ addBtn.addEventListener("click", e => {
         showNotes();
         closeIcon.click();
     }
-});
+
+    editbtn.addEventListener("click", () => {
+        popupTitle.innerText = "Edit Note"; // Устанавливаем заголовок модального окна редактирования
+        subbtn.innerText = "Update Note"; // Устанавливаем текст кнопки на кнопке модального окна редактирования
+        popupBox.classList.add("show"); // Отображаем модальное окно
+        document.querySelector("body").style.overflow = "hidden"; // Устанавливаем стиль overflow для body, чтобы скрыть прокрутку
+    });
+}); 
