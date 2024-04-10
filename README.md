@@ -1,7 +1,7 @@
 # Project DAILY-MATE
 
 ## Introduction
-Daily-mate project is a web application built using Django. It allows users to create, manage, and organize their daily notes and entries in a convenient manner. Users can register, log in, create, edit, and delete notes and daily entries, search for specific entries, and manage their profile.
+Daily-mate project is a web application built using Django. It allows users to create, manage, and organize their daily notes and entries conveniently. Users can register, log in, create, edit, and delete notes and daily entries, search for specific entries, and manage their profiles.
 
 ## Installation
 To run this project locally, follow these steps:
