@@ -25,8 +25,9 @@
       {% if entry.title|length > 30 %}
         ...
       {% endif %}
+      <br>
       <a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.content|slice:":173" }}</a>
-      {% if entry.content|length > 30 %}
+      {% if entry.content|length > 173 %}
         ...
       {% endif %}
       <br>

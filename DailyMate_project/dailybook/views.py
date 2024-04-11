@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import Http404
 from django.urls import reverse_lazy
+from django.utils import timezone
 
 from .models import Entry, Dailybook
 from .forms import DailybookForm, RegisterForm
@@ -115,10 +116,17 @@ class EntryCreateView(LoginRequiredMixin, CreateView):
         return reverse_lazy('note_list', kwargs={'username': self.kwargs['username']})
 
 
+from django.utils import timezone
+
 class DailybookCreateView(LoginRequiredMixin, CreateView):
     model = Dailybook
     form_class = DailybookForm
     template_name = 'main/dailybook_form.html'
+
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['date_edit'] = timezone.now().strftime('%Y-%m-%d')
+        return initial
 
     def form_valid(self, form):
         form.instance.author = self.request.user

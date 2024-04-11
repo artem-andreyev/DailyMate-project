@@ -1,11 +1,51 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Note list - DailyMate{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/note_form.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+{% endblock %}
 
 {% block content %}
-  <h2>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Entry 123</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Entry</button>
-  </form>
-  <a href="{% url 'dailybook_list' username=request.user.username %}">Back to Entries</a>
+  <div class="popup-box">
+    <div class="popup">
+      <div class="content">
+        <header>
+          <p>Add a new note</p>
+          <a href="{% url 'dailybook_list' username=request.user.username%} "><i class="uil uil-times"></i></a>
+        </header>
+        <form method="post">
+          {% csrf_token %}
+          <div class="row title">
+            <label for="id_title">Title</label>
+            <input type="text" id="id_title" name="title" spellcheck="false" value="{{ form.title.value|default_if_none:"" }}" maxlength="100">
+          </div>
+          <div class="row description">
+            <label for="id_content">Content</label>
+            <textarea id="id_content" name="content" spellcheck="false">{{ form.content.value|default_if_none:"" }}</textarea>
+          </div>
+          <div class="row emotion">
+            <label for="id_emotion">Emotion</label>
+            <br>
+            <select id="id_emotion" name="emotion">
+              <option value="happy">Happy</option>
+              <option value="sad">Sad</option>
+              <option value="neutral">Neutral</option>
+            </select>
+          </div>
+          <div class="row date_edit">
+            <label for="id_date_edit">Date Edit</label>
+            <input type="date" id="id_date_edit" name="date_edit" value="{{ form.date_edit.value }}">
+        </div>
+
+          <button type="submit">Save Entry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'css/note_list.js' %}"></script>
 {% endblock %}
