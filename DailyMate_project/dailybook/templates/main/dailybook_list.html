@@ -12,14 +12,13 @@
 {% block content %}
 
   <h2>Daily-books</h2>
-  <form method="get">
+  <form id="sortForm" method="get">
     <label for="sort_by">Sort by:</label>
     <select name="sort_by" id="sort_by">
       <option value="timestamp">Time</option>
       <option value="title">Title</option>
       <option value="emotion">Emotion</option>
     </select>
-    <button type="submit">Enter</button>
   </form>
 
   <div class="wrapper">
@@ -51,5 +50,17 @@
   </div>
 
   <script src="{% static 'css/note_list.js' %}"></script>
+
+  <script>
+    document.getElementById('sort_by').addEventListener('change', function() {
+      document.getElementById('sortForm').submit();
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const sortBy = urlParams.get('sort_by');
+    if (sortBy) {
+      document.getElementById('sort_by').value = sortBy;
+    }
+  </script>
 
 {% endblock %}
