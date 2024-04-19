@@ -228,7 +228,6 @@ form button{
   border-radius: 4px;
   background: #6A93F8;
 }
-
 @media (max-width: 660px){
   .wrapper{
     margin: 15px;
@@ -241,4 +240,17 @@ form button{
   .bottom-content .settings i{
     font-size: 17px;
   }
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.blue-header {
+  color: #6A93F8;
+  margin-right: 50px;
+}
+
+.blue-header h2, .blue-header form {
+  display: inline;
 }

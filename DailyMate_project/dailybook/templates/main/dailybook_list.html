@@ -11,15 +11,21 @@
 
 {% block content %}
 
-  <h2>Daily-books</h2>
-  <form id="sortForm" method="get">
-    <label for="sort_by">Sort by:</label>
-    <select name="sort_by" id="sort_by">
-      <option value="timestamp">Time</option>
-      <option value="title">Title</option>
-      <option value="emotion">Emotion</option>
-    </select>
-  </form>
+<div class="header-container">
+  <div class="blue-header">
+    <h2>Daily-books</h2>
+  </div>
+  <div class="blue-header">
+    <form id="sortForm" method="get">
+      <label for="sort_by">Sort by:</label>
+      <select name="sort_by" id="sort_by">
+        <option value="timestamp">Time</option>
+        <option value="title">Title</option>
+        <option value="emotion">Emotion</option>
+      </select>
+    </form>
+  </div>
+</div>
 
   <div class="wrapper">
     <li class="add-box">
