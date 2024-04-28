@@ -1,9 +1,37 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/note_form.css' %}">
+{% endblock %}
 
 {% block content %}
-  <h2>{{ object.title }}</h2>
+  <!-- <h2>{{ object.title }}</h2>
   <p>{{ object.content }}</p>
   <a href="{% url 'entry_edit' username=entry.author.username pk=entry.pk  %}">Edit Entry</a>
   <a href="{% url 'notes_delete' username=request.user.username pk=entry.pk %}">Delete</a>
-  <a href="{% url 'note_list' username=entry.author.username%}">Back to Entries</a>
+  <a href="{% url 'note_list' username=entry.author.username%}">Back to Entries</a> -->
+  <div class="popup-box">
+    <div class="popup">
+      <div class="content">
+        <header>
+          <p>See the note</p>
+          <a href="{% url 'dailybook_list' username=request.user.username%} "><i class="uil uil-times"></i></a>
+        </header>
+        <form method="post">
+          {% csrf_token %}
+          <div class="row title">
+            <label for="id_title">Title</label>
+            <p>{{ object.title }}</p>
+          </div>
+          <div class="row description">
+            <label for="id_content">Content</label>
+            {{ object.content }}
+          </div>
+            {{ object.emotion }}
+          <button type="button" onclick="window.location.href='{% url 'note_list' username=request.user.username %}'">Back to the notes</button>
+        </form>
+      </div>
+    </div>
+  </div>
 {% endblock %}

@@ -4,40 +4,39 @@
 {% block title %}Note list - DailyMate{% endblock %}
 
 {% block head %}
-  <link rel="stylesheet" href="{% static 'css/note_list.css' %}">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="{% static 'css/note_list.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 {% endblock %}
 
 {% block content %}
-
   <div class="wrapper">
-    <li class="add-box">
-      <a href="{% url 'entry_create' username=request.user.username %}" class="add-link">
-        <div class="icon"><i class="uil uil-plus"></i></div>
-        <!-- <p>Add new note</p> -->
-      </a>
-    </li>
-    
-    {% for entry in entries reversed %}
-    <li >
-      <a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.title|slice:":20" }}</a>
-      {% if entry.title|length > 30 %}
-        ...
-      {% endif %}
-      <br>
-      <a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.content|slice:":173" }}</a>
-      {% if entry.content|length > 173 %}
-        ...
-      {% endif %}
-      <br>
-      <div class = "edit">
-      <a href="{% url 'entry_edit' username=entry.author.username pk=entry.pk  %}">Edit Entry</a>
-      </div>
-    </li>
-    {% endfor %}
-  </div>    
-  
+      <li class="add-box">
+          <a href="{% url 'entry_create' username=request.user.username %}" class="add-link">
+              <div class="icon"><i class="uil uil-plus"></i></div>
+              <!-- <p>Add new note</p> -->
+          </a>
+      </li>
+
+      {% for entry in entries reversed %}
+          <li>
+              <h3><a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.title|slice:":20" }}</a>
+                  {% if entry.title|length > 13 %}
+                      ...
+                  {% endif %}
+              </h3>
+              <a href="{% url 'entry_detail' username=entry.author.username pk=entry.pk %}">{{ entry.content|slice:":173" }}</a>
+              {% if entry.content|length > 173 %}
+                  ...
+              {% endif %}
+              </p>
+              <br>
+              <div class="edit">
+                  <a href="{% url 'entry_edit' username=entry.author.username pk=entry.pk  %}">Edit Entry</a>
+              </div>
+          </li>
+      {% endfor %}
+  </div>
 
   <script src="{% static 'css/note_list.js' %}"></script>
 
