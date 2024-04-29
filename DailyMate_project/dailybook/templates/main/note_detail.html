@@ -21,15 +21,18 @@
         <form method="post">
           {% csrf_token %}
           <div class="row title">
-            <label for="id_title">Title</label>
+            <h4><label for="id_title">Title</label></h4>
             <p>{{ object.title }}</p>
           </div>
           <div class="row description">
-            <label for="id_content">Content</label>
+            <h4><label for="id_content">Content</label></h4>
             {{ object.content }}
           </div>
             {{ object.emotion }}
-          <button type="button" onclick="window.location.href='{% url 'note_list' username=request.user.username %}'">Back to the notes</button>
+          <button type="button" onclick="window.location.href='{% url 'notes_delete' username=request.user.username pk=object.pk%}'">Delete the dailybook</button>
+          <br>
+        </br>
+        <button type="button" onclick="window.location.href='{% url 'note_list' username=request.user.username %}'">Back to the notes</button>
         </form>
       </div>
     </div>
