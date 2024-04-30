@@ -18,7 +18,7 @@
                 {% if request.user.is_authenticated %}
                 <nav>
                     <div class="navbar">
-                        <div class="logo"><a href="{% url 'dailybook_list' username=request.user.username %}">DailyMate.</a></div>
+                        <div class="logo"><a href="{% url 'profile' %}">DailyMate.</a></div>
                         <ul class="menu">
                             <li><a href="{% url 'dailybook_list' username=request.user.username %}">Dailybooks</a></li>
                             <li><a href="{% url 'note_list' username=request.user.username %}">Notes</a></li>
@@ -27,7 +27,6 @@
                             {% if request.path == '/profile/' %}
                             <li><a href="#contact">Contact</a></li>
                             {% endif %}
-
                             <div class="cancel-btn">
                                 <i class="fas fa-times"></i>
                             </div>

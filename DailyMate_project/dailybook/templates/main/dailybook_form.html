@@ -27,6 +27,17 @@
             <label for="id_content">Content</label>
             <textarea id="id_content" name="content" spellcheck="false" maxlength="7000">{{ form.content.value|default_if_none:''|striptags|striptags }}</textarea>
         </div>
+
+        
+        <div class="priority">
+          <label for="id_priority">Priority</label>
+          <br>
+          <select id="id_priority" name="id_priority">
+            <option value="happy">High</option>
+            <option value="sad">Medium</option>
+            <option value="neutral">Low</option>
+          </select>
+        </div>
         
           <div class="row emotion">
             <label for="id_emotion">Emotion</label>
