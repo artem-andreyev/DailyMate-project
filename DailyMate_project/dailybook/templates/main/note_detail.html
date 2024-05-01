@@ -28,7 +28,10 @@
             <h4><label for="id_content">Content</label></h4>
             {{ object.content }}
           </div>
-            {{ object.emotion }}
+          <div class="row priority">
+            <h4><label for="id_priority">Priority</label></h4>
+            {{ object.priority }}
+          </div>
           <button type="button" onclick="window.location.href='{% url 'notes_delete' username=request.user.username pk=object.pk%}'">Delete the dailybook</button>
           <br>
         </br>

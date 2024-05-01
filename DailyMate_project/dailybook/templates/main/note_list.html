@@ -10,6 +10,19 @@
 {% endblock %}
 
 {% block content %}
+
+<h2 style="color: #618cf8; margin-left: 50px;">Notes</h2>
+
+<form id="sortForm" method="get">
+    <label for="sort_by" style="color: #618cf8; margin-left: 50px;">Sort by:</label>
+    <select name="sort_by" id="sort_by">
+        <option value="timestamp">Time</option>
+        <option value="title">Title</option>
+        <option value="priority">Priority</option>
+    </select>
+  </div>
+</form>
+
   <div class="wrapper">
       <li class="add-box">
           <a href="{% url 'entry_create' username=request.user.username %}" class="add-link">

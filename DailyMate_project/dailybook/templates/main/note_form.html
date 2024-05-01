@@ -31,12 +31,22 @@
             <input type="text" id="id_title" name="title" spellcheck="false" value="{{ form.instance.title }}" maxlength="100">
           </div>
           <div class="row description">
-            <label for="id_content">Description</label>
+            <label for="id_content">Content</label>
             <textarea id="id_content" name="content" spellcheck="false" maxlength="7000">{{ form.instance.content }}</textarea>
           </div>
-          <div class = "sub_button">
+
+          <div class="priority">
+            <label for="id_priority">Priority</label>
+            <br>
+            <select id="id_priority" name="id_priority">
+              <option value="happy">High</option>
+              <option value="sad">Medium</option>
+              <option value="neutral">Low</option>
+            </select>
+          </div>
+        </br>
+
           <button type="submit">Add note</button>
-        </div>
         </form>
       </div>
     </div>
