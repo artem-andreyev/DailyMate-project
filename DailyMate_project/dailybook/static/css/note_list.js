@@ -104,10 +104,4 @@ addBtn.addEventListener("click", e => {
         showNotes();
         closeIcon.click();
     }
-
-    editbtn.addEventListener("click", () => {
-        popupTitle.innerText = "Edit Note";
-        popupBox.classList.add("show");
-        document.querySelector("body").style.overflow = "hidden";
-    });
 });

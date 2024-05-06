@@ -38,8 +38,8 @@
       {% if dailybook.title|length > 13 %}
         ...
       {% endif %}</h3>
-       <p><a href="{% url 'dailybook_detail' username=request.user.username pk=dailybook.pk %}">{{ dailybook.content|slice:":156"  }}</a>
-      {% if dailybook.content|length > 173 %}
+       <p><a href="{% url 'dailybook_detail' username=request.user.username pk=dailybook.pk %}">{{ dailybook.content|slice:":80"  }}</a>
+      {% if dailybook.content|length > 80 %}
         ...
       {% endif %}
       </p>
