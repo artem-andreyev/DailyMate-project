@@ -72,8 +72,12 @@ def note_list(request, username):
         except User.DoesNotExist:
             raise Http404("User does not exist")
 
-        entries = Entry.objects.filter(author=user)
-        print(entries)
+        sort_by = request.GET.get('sort_by')
+        if sort_by == 'title':
+            entries = Entry.objects.filter(author=user).order_by('title')
+        else:
+            entries = Entry.objects.filter(author=user).order_by('-title')
+
         return render(request, 'main/note_list.html', {'entries': entries})
 
 
@@ -117,6 +121,7 @@ class EntryCreateView(LoginRequiredMixin, CreateView):
 
 
 from django.utils import timezone
+
 
 class DailybookCreateView(LoginRequiredMixin, CreateView):
     model = Dailybook
