@@ -1,5 +1,3 @@
-<!-- templates/registration/profile.html -->
-
 {% extends 'base.html' %}
 {% load static %}
 
@@ -12,18 +10,10 @@
 {% endblock %}
 
 {% block content %}
-        <!-- Move to up button -->
-        <div class="scroll-button">
-            <a href="{% url 'profile'%}"><i class="fas fa-arrow-up"></i></a>
-          </div>
-        <!--<div class="logout-button">
-            <button><a href="{% url 'logout' %}">Logout</a></button>
-        </div> -->
-          <!-- navgaition menu -->
+    <div class="scroll-button">
+        <a href="{% url 'profile'%}"><i class="fas fa-arrow-up"></i></a>
+    </div>
 
-      
-
-    <!-- Home Section Start -->
     <section class="home" id="home">
       <div class="home-content">
         <div class="text">
@@ -40,7 +30,6 @@
       </div>
     </section>
 
-    <!-- About Section Start -->
     <section class="about" id="about">
       <div class="content">
         <div class="title"><span>About Me</span></div>
@@ -57,9 +46,6 @@
       </div>
     </section>
 
-    
-    <!-- My Skill Section Start -->
-    <!-- Section Tag and Other Div will same where we need to put same CSS -->
     <section class="skills" id="skills">
       <div class="content">
         <div class="title"><span>What diary app can do?</span></div>
@@ -97,7 +83,6 @@
       </div>
     </section>
 
-    <!-- My Services Section Start -->
     <section class="services" id="services">
       <div class="content">
         <div class="title"><span>Our app services</span></div>
@@ -148,7 +133,6 @@
       </div>
     </section>
 
-    <!-- Contact Me section Start -->
     <section class="contact" id="contact">
       <div class="content">
         <div class="title"><span>Contact Me</span></div>
@@ -163,7 +147,6 @@
         </div>
       </section>
   
-      <!-- Footer Section Start -->
       <footer>
         <div class="text">
           <span>Created By <a href="#">Teo and Artem</a> | &#169; 2024 All Rights Reserved</span>

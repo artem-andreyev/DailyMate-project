@@ -18,7 +18,6 @@
       <select name="sort_by" id="sort_by">
         <option value="timestamp">Time</option>
         <option value="title">Title</option>
-<!--        <option value="priority">Priority</option>-->
         <option value="emotion">Emotion</option>
       </select>
     </div>
@@ -28,7 +27,6 @@
     <li class="add-box">
       <a href="{% url 'dailybook_create' username=request.user.username %}" class="add-link">
         <div class="icon"><i class="uil uil-plus"></i></div>
-        <!-- <p>Add new note</p> -->
       </a>
     </li>
 

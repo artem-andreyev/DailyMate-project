@@ -18,7 +18,6 @@
         <select name="sort_by" id="sort_by">
             <option value="title">Title</option>
             <option value="title-minus">Non alphabetical order</option>
-<!--            <option value="priority">Priority</option>-->
         </select>
     </form>
 
@@ -26,7 +25,6 @@
         <li class="add-box">
             <a href="{% url 'entry_create' username=request.user.username %}" class="add-link">
                 <div class="icon"><i class="uil uil-plus"></i></div>
-                <!-- <p>Add new note</p> -->
             </a>
         </li>
 
